@@ -4,6 +4,8 @@ package Lab12;
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
+import java.util.Calendar;
+import java.text.*;
 
 public class Bot
 {
@@ -41,10 +43,11 @@ public class Bot
 
                 while (true) {
 
-                    if (System.currentTimeMillis() - start > 20000)
+                    if (System.currentTimeMillis() - start > 5000)
                     {
                         start = System.currentTimeMillis();
                         String msg = "Buenos dias, pedrilas";
+//                        String msg = new SimpleDateFormat("yyyy.MM.dd -- HH.mm.ss").format(Calendar.getInstance().getTime());
                         try {
                             // запись в выходной поток
                             dos.writeUTF(msg);
