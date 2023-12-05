@@ -82,6 +82,7 @@ class ClientHandler implements Runnable
         String received;
         while (true)
         {
+            int i = 0;
             try
             {
                 // получение строки
@@ -117,6 +118,7 @@ class ClientHandler implements Runnable
                         if(mc.isloggedin==true && !(mc.name.equals(this.name)))
                         {
                             mc.dos.writeUTF(this.name+" : "+MsgToSend1);
+                            i = 1;
                         }
                     }
                 } else //Иначе ищется конкретный получатель
@@ -133,8 +135,15 @@ class ClientHandler implements Runnable
                         if (mc.name.equals(recipient) && mc.isloggedin==true)
                         {
                             mc.dos.writeUTF(this.name+" : "+MsgToSend);
+                            i = 1;
                             break;
                         }
+                    }
+
+                    if (i == 0)
+                    {
+                        System.out.println("Получатель не обнаружен.");
+                        continue;
                     }
                 }
 
