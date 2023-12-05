@@ -43,7 +43,7 @@ public class Bot
 
                 while (true) {
 
-                    if (System.currentTimeMillis() - start > 5000)
+                    if (System.currentTimeMillis() - start > 20000)
                     {
                         start = System.currentTimeMillis();
                         String msg = "Buenos dias, pedrilas";
